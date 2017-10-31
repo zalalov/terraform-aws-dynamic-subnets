@@ -4,7 +4,7 @@ module "private_label" {
   stage      = "${var.stage}"
   name       = "${var.name}"
   delimiter  = "${var.delimiter}"
-  attributes = ["private"]
+  attributes = ["${compact(concat(var.attributes, list("private")))}"]
   tags       = "${var.tags}"
 }
 

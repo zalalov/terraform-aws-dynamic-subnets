@@ -37,11 +37,11 @@ resource "aws_subnet" "private" {
 resource "aws_route_table" "private" {
   count  = "${length(var.availability_zones)}"
   vpc_id = "${data.aws_vpc.default.id}"
-  tags = "${module.private_label.tags}"
+  tags   = "${module.private_label.tags}"
 }
 
 resource "aws_route_table_association" "private" {
-  count = "${length(var.availability_zones)}"
+  count          = "${length(var.availability_zones)}"
   subnet_id      = "${element(aws_subnet.private.*.id, count.index)}"
   route_table_id = "${element(aws_route_table.private.*.id, count.index)}"
 }

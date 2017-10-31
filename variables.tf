@@ -46,3 +46,5 @@ variable "nat_gateway_enabled" {
   description = "Flag to enable/disable NAT gateways"
   default     = "true"
 }
+
+variable "eoigw_id" {}

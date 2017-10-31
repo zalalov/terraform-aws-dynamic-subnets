@@ -1,6 +1,12 @@
 # terraform-aws-dynamic-subnets [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-dynamic-subnets.svg)](https://travis-ci.org/cloudposse/terraform-aws-dynamic-subnets)
 
-Terraform module for public and private [`subnets`](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html) provisioning in existing AWS [`VPC`](https://aws.amazon.com/vpc)
+Terraform module for public and private [`subnets`](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html) provisioning in existing AWS [`VPC`](https://aws.amazon.com/vpc)*[]:
+
+The module creates one private and one public subnet in each Availability Zone specified in `var.availability_zones`.
+The public subnets are routed to the Internet Gateway (using the provided Internet Gateway ID).
+NAT Gateways are created in each AZ, and the private subnets are routed to the corresponding NAT Gateways (this could be disabled by `nat_gateway_enabled` flag).
+
+
 
 ## Usage
 

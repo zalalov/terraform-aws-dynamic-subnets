@@ -29,7 +29,7 @@ resource "aws_subnet" "public" {
         "Name", "${module.public_subnet_label.id}${var.delimiter}${replace(element(var.availability_zones, count.index),"-",var.delimiter)}",
         "Namespace", "${module.public_subnet_label.namespace}",
         "Stage", "${module.public_subnet_label.stage}"
-      ), ${module.public_subnet_label.tags}
+      ), module.public_subnet_label.tags
     )
   }"
 }

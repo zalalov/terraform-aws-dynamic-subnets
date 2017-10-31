@@ -29,7 +29,7 @@ resource "aws_subnet" "private" {
         "Name", "${module.private_subnet_label.id}${var.delimiter}${replace(element(var.availability_zones, count.index),"-",var.delimiter)}",
         "Namespace", "${module.private_subnet_label.namespace}",
         "Stage", "${module.private_subnet_label.stage}"
-      ), ${module.private_subnet_label.tags}
+      ), module.private_subnet_label.tags
     )
   }"
 }
